@@ -220,6 +220,158 @@ Proporciona: estructura semanal, ejercicios específicos (series/reps), tiempo e
   }
 });
 
+// Calculate macros for custom food
+app.post('/api/calculate-macros', async (req, res) => {
+  try {
+    const { foodName, grams } = req.body;
+
+    if (!foodName || !grams) {
+      return res.status(400).json({ error: 'Nombre de alimento y gramos requeridos' });
+    }
+
+    const prompt = `Eres nutricionista experto. Para el alimento "${foodName}" con una cantidad de ${grams} gramos, proporciona EXACTAMENTE:
+- Calorías totales
+- Proteína en gramos
+- Carbohidratos en gramos
+- Grasas en gramos
+
+Proporciona SOLO números en este formato exacto (una línea por cada macro):
+CALORIES:XXX
+PROTEIN:XX
+CARBS:XX
+FATS:XX
+
+Si no conoces el alimento exacto, estima basado en alimentos similares.`;
+
+    const message = await client.messages.create({
+      model: 'claude-opus-4-1',
+      max_tokens: 100,
+      messages: [{ role: 'user', content: prompt }]
+    });
+
+    const text = message.content[0].type === 'text' ? message.content[0].text : '';
+
+    // Parse macros from response
+    const lines = text.split('\n');
+    const macros = {
+      calories: 0,
+      protein: 0,
+      carbs: 0,
+      fats: 0
+    };
+
+    lines.forEach(line => {
+      if (line.includes('CALORIES:')) macros.calories = parseInt(line.split(':')[1]) || 0;
+      if (line.includes('PROTEIN:')) macros.protein = parseFloat(line.split(':')[1]) || 0;
+      if (line.includes('CARBS:')) macros.carbs = parseFloat(line.split(':')[1]) || 0;
+      if (line.includes('FATS:')) macros.fats = parseFloat(line.split(':')[1]) || 0;
+    });
+
+    res.json({
+      success: true,
+      foodName,
+      grams,
+      macros
+    });
+
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: error.message || 'Error calculando macros' });
+  }
+});
+
+// Analyze receipt photo and extract products
+app.post('/api/analyze-receipt', async (req, res) => {
+  try {
+    const { imageBase64 } = req.body;
+
+    if (!imageBase64) {
+      return res.status(400).json({ error: 'Imagen requerida' });
+    }
+
+    const cleanBase64 = imageBase64.replace(/^data:image\/\w+;base64,/, '');
+
+    const message = await client.messages.create({
+      model: 'claude-opus-4-1',
+      max_tokens: 2000,
+      messages: [{
+        role: 'user',
+        content: [
+          {
+            type: 'image',
+            source: {
+              type: 'base64',
+              media_type: 'image/jpeg',
+              data: cleanBase64
+            }
+          },
+          {
+            type: 'text',
+            text: 'Analiza esta foto de ticket de supermercado. Extrae TODOS los productos/alimentos que veas. Lista cada uno en formato: "Producto (cantidad si aparece)". Enfócate en proteínas, carbohidratos, grasas. Si hay varios de un mismo producto, lista todos.'
+          }
+        ]
+      }]
+    });
+
+    const foodsText = message.content[0].type === 'text' ? message.content[0].text : '';
+    const foods = foodsText.split('\n')
+      .filter(line => line.trim().length > 0)
+      .map(line => line.replace(/^[-•*]\s*/, '').trim());
+
+    res.json({
+      success: true,
+      foods: foods,
+      rawAnalysis: foodsText
+    });
+
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: error.message || 'Error analizando foto' });
+  }
+});
+
+// Generate exercise recommendations based on user profile
+app.post('/api/exercise-recommendations', async (req, res) => {
+  try {
+    const { weight, height, age, objective } = req.body;
+
+    if (!weight || !height || !age || !objective) {
+      return res.status(400).json({ error: 'Datos de perfil incompletos' });
+    }
+
+    const prompt = `Como entrenador deportivo especializado, crea rutina de ejercicios personalizada para:
+- Peso: ${weight}kg
+- Altura: ${height}cm
+- Edad: ${age} años
+- Objetivo: ${objective}
+
+Calcula IMC, frecuencia cardíaca máxima estimada, y proporciona:
+1. Rutina semanal específica (días y ejercicios)
+2. Series y repeticiones ajustadas
+3. Intensidad y tiempo de descanso
+4. Progresión recomendada
+5. Consideraciones especiales de seguridad
+
+Hazlo realista, práctico y motivador. Enfoque en tiburón imparable.`;
+
+    const message = await client.messages.create({
+      model: 'claude-opus-4-1',
+      max_tokens: 2500,
+      messages: [{ role: 'user', content: prompt }]
+    });
+
+    res.json({
+      success: true,
+      userProfile: { weight, height, age, objective },
+      recommendations: message.content[0].type === 'text' ? message.content[0].text : ''
+    });
+
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: error.message || 'Error generando recomendaciones' });
+  }
+});
+
 // ==================== SYNC ENDPOINTS ====================
 
 // Save user data (by email)

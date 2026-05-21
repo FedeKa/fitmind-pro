@@ -11,7 +11,6 @@
   <link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;FitMind PRO&quot;,&quot;short_name&quot;:&quot;FitMind&quot;,&quot;start_url&quot;:&quot;/&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;orientation&quot;:&quot;portrait&quot;,&quot;theme_color&quot;:&quot;#000000&quot;,&quot;background_color&quot;:&quot;#ffffff&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23d32f2f' width='192' height='192'/><text x='50%25' y='50%25' font-size='120' text-anchor='middle' dominant-baseline='central' font-family='system-ui'>🦈</text></svg>&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;,&quot;purpose&quot;:&quot;any&quot;}]}">
   <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%23d32f2f' width='180' height='180'/><text x='50%' y='50%' font-size='100' text-anchor='middle' dominant-baseline='central' font-family='system-ui'>🦈</text></svg>">
   <title>FitMind PRO - Mentalidad de Tiburón</title>
-
   <style>
     * {
       margin: 0;
@@ -20,7 +19,6 @@
       -webkit-tap-highlight-color: transparent;
       -webkit-touch-callout: none;
     }
-
     :root {
       --primary: #d32f2f;
       --primary-dark: #b71c1c;
@@ -36,14 +34,12 @@
       --shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
       --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
-
     html, body {
       height: 100%;
       width: 100%;
       position: fixed;
       overflow: hidden;
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
       background: #ffffff;
@@ -53,14 +49,12 @@
       display: flex;
       flex-direction: column;
     }
-
     #appScreen {
       display: flex;
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
     }
-
     .header {
       background: linear-gradient(135deg, var(--dark) 0%, #1a1a1a 100%);
       color: white;
@@ -74,7 +68,6 @@
       padding-left: max(16px, env(safe-area-inset-left));
       padding-right: max(16px, env(safe-area-inset-right));
     }
-
     .header-left { display: flex; align-items: center; gap: 10px; }
     .header-logo { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
     .header h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.5px; }
@@ -83,7 +76,6 @@
     .btn-icon { background: transparent; border: none; color: white; font-size: 1rem; cursor: pointer; padding: 6px; border-radius: 4px; transition: background 0.2s; }
     .btn-icon:hover { background: rgba(255, 255, 255, 0.1); }
     .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.85rem; }
-
     .nav-tabs {
       display: flex;
       background: #fafafa;
@@ -92,7 +84,6 @@
       -webkit-overflow-scrolling: touch;
       flex-shrink: 0;
     }
-
     .nav-tabs button {
       flex: 1;
       min-width: 60px;
@@ -107,9 +98,7 @@
       font-size: 0.8rem;
       white-space: nowrap;
     }
-
     .nav-tabs button.active { color: var(--primary); border-bottom-color: var(--primary); }
-
     .main-content {
       flex: 1;
       overflow-y: auto;
@@ -117,17 +106,13 @@
       -webkit-overflow-scrolling: touch;
       padding-bottom: env(safe-area-inset-bottom);
     }
-
     .container { max-width: 1200px; margin: 0 auto; padding: 12px 16px; padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right)); }
-
     .section { display: none; }
     .section.active { display: block; animation: fadeIn 0.3s ease-in; }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .card {
       background: white;
       border: 1px solid var(--border-gray);
@@ -137,9 +122,7 @@
       box-shadow: var(--shadow);
       transition: all 0.3s;
     }
-
     .card:hover { box-shadow: var(--shadow-lg); }
-
     .card-title {
       font-size: 1rem;
       font-weight: 700;
@@ -149,14 +132,12 @@
       align-items: center;
       gap: 8px;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
       gap: 8px;
       margin-bottom: 10px;
     }
-
     .grid-item {
       background: #fafafa;
       border: 2px solid var(--border-gray);
@@ -167,28 +148,23 @@
       transition: all 0.3s;
       position: relative;
     }
-
     .grid-item:active {
       border-color: var(--primary);
       background: #ffffff;
       transform: translateY(-1px);
       box-shadow: var(--shadow);
     }
-
     .grid-item.selected {
       border-color: var(--primary);
       background: rgba(211, 47, 47, 0.1);
     }
-
     .grid-item-title {
       font-weight: 600;
       font-size: 0.8rem;
       margin-top: 6px;
       color: var(--text-primary);
     }
-
     .grid-item-icon { font-size: 1.6rem; }
-
     .exercise-card {
       background: white;
       border: 1px solid var(--border-gray);
@@ -198,17 +174,14 @@
       cursor: pointer;
       transition: all 0.3s;
     }
-
     .exercise-card:active {
       border-color: var(--primary);
       box-shadow: var(--shadow);
     }
-
     .exercise-card.expanded {
       border-color: var(--primary);
       background: rgba(211, 47, 47, 0.02);
     }
-
     .exercise-header {
       display: flex;
       justify-content: space-between;
@@ -217,10 +190,9 @@
       color: var(--text-primary);
       font-size: 0.95rem;
     }
-
     .exercise-image {
       width: 100%;
-      height: 140px;
+      height: 180px;
       background: linear-gradient(135deg, #f0f0f0, #e8e8e8);
       border-radius: 8px;
       margin: 8px 0;
@@ -229,14 +201,14 @@
       justify-content: center;
       font-size: 2.5rem;
       overflow: hidden;
+      background-size: cover;
+      background-position: center;
     }
-
     .exercise-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .exercise-details {
       margin-top: 10px;
       display: none;
@@ -246,18 +218,7 @@
       padding-top: 10px;
       line-height: 1.5;
     }
-
     .exercise-details.show { display: block; }
-
-    .muscle-diagram {
-      background: linear-gradient(135deg, rgba(211, 47, 47, 0.1), rgba(255, 110, 110, 0.1));
-      border-radius: 8px;
-      padding: 10px;
-      margin: 8px 0;
-      font-size: 0.85rem;
-      border-left: 4px solid var(--primary);
-    }
-
     .btn {
       padding: 9px 18px;
       border: none;
@@ -274,23 +235,19 @@
       -webkit-user-select: none;
       user-select: none;
     }
-
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), #ff6e6e);
       color: white;
       box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
     }
-
     .btn-primary:active {
       transform: translateY(-1px);
       box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
     }
-
     .btn-primary:disabled {
       opacity: 0.6;
       cursor: not-allowed;
     }
-
     .btn-secondary {
       background: #f5f5f5;
       color: var(--text-primary);
@@ -298,17 +255,13 @@
       font-size: 0.85rem;
       padding: 6px 12px;
     }
-
     .btn-secondary:active {
       background: #eeeeee;
       border-color: var(--primary);
     }
-
     .btn-block { width: 100%; justify-content: center; }
     .btn-sm { padding: 6px 12px; font-size: 0.8rem; }
-
     .form-group { margin-bottom: 10px; }
-
     label {
       display: block;
       font-weight: 600;
@@ -316,7 +269,6 @@
       color: var(--text-primary);
       font-size: 0.85rem;
     }
-
     input, select, textarea {
       width: 100%;
       padding: 9px 12px;
@@ -328,20 +280,20 @@
       -webkit-appearance: none;
       appearance: none;
     }
-
     input:focus, select:focus, textarea:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
     }
-
+    input[type="file"] {
+      padding: 6px;
+    }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
       gap: 8px;
       margin-bottom: 12px;
     }
-
     .stat-box {
       background: linear-gradient(135deg, #fafafa, #f5f5f5);
       border: 1px solid var(--border-gray);
@@ -350,14 +302,12 @@
       text-align: center;
       position: relative;
     }
-
     .stat-value {
       font-size: 1.6rem;
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 3px;
     }
-
     .stat-label {
       font-size: 0.7rem;
       color: var(--text-secondary);
@@ -365,7 +315,6 @@
       letter-spacing: 0.5px;
       font-weight: 600;
     }
-
     .auth-screen {
       min-height: 100vh;
       display: flex;
@@ -377,7 +326,6 @@
       padding: 20px;
       padding-top: max(20px, env(safe-area-inset-top));
     }
-
     .auth-card {
       background: rgba(255, 255, 255, 0.98);
       color: var(--text-primary);
@@ -388,10 +336,8 @@
       text-align: center;
       box-shadow: var(--shadow-lg);
     }
-
     .auth-card h2 { font-size: 1.5rem; margin-bottom: 6px; color: var(--dark); font-weight: 700; }
     .auth-card p { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.85rem; }
-
     .auth-logo {
       width: 65px;
       height: 65px;
@@ -404,14 +350,12 @@
       font-size: 2rem;
       box-shadow: 0 8px 24px rgba(211, 47, 47, 0.3);
     }
-
     .email-input-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
       margin-bottom: 12px;
     }
-
     .btn-google {
       background: white;
       color: var(--text-primary);
@@ -431,17 +375,14 @@
       -webkit-user-select: none;
       user-select: none;
     }
-
     .btn-google:active {
       background: #f5f5f5;
       border-color: var(--primary);
       transform: translateY(-1px);
     }
-
     .hidden { display: none !important; }
     .mt-12 { margin-top: 12px; }
     .mb-12 { margin-bottom: 12px; }
-
     .sync-status {
       position: fixed;
       bottom: env(safe-area-inset-bottom, 10px);
@@ -454,12 +395,10 @@
       z-index: 999;
       animation: slideIn 0.3s ease-out;
     }
-
     @keyframes slideIn {
       from { transform: translateY(100px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
-
     .loading {
       display: inline-block;
       width: 14px;
@@ -469,24 +408,36 @@
       border-top-color: var(--primary);
       animation: spin 1s linear infinite;
     }
-
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
-
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .macro-display {
+      background: linear-gradient(135deg, rgba(211, 47, 47, 0.1), rgba(255, 110, 110, 0.05));
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      padding: 10px;
+      margin: 8px 0;
+      font-size: 0.85rem;
+      border-left: 4px solid var(--primary);
+    }
     @supports (padding: max(0px)) {
       body {
         padding-left: env(safe-area-inset-left);
         padding-right: env(safe-area-inset-right);
       }
     }
-
     @media (max-width: 500px) {
       .header h1 { font-size: 1.1rem; }
       .card { padding: 12px; }
       .grid { grid-template-columns: repeat(2, 1fr); }
+      .grid-2col { grid-template-columns: 1fr 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .exercise-image { height: 120px; }
+      .exercise-image { height: 150px; }
     }
   </style>
 </head>
@@ -500,12 +451,10 @@
       <p><strong>PRO</strong></p>
       <p style="font-size: 0.8rem;">Mentalidad de Tiburón</p>
       <p style="font-size: 0.75rem; margin-bottom: 18px; color: var(--text-secondary);">Entrenamientos sincronizados</p>
-
       <div class="email-input-group">
         <input type="email" id="emailInput" placeholder="tu@email.com" autocomplete="email" />
         <button class="btn-google" onclick="loginWithEmail()">🚀 Continuar</button>
       </div>
-
       <p style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 12px;">Prueba: <strong>demo@fitmind.pro</strong></p>
     </div>
   </div>
@@ -525,6 +474,7 @@
 
     <div class="nav-tabs">
       <button class="nav-btn active" data-section="dashboard" onclick="switchSection('dashboard')">📊</button>
+      <button class="nav-btn" data-section="perfil" onclick="switchSection('perfil')">👤</button>
       <button class="nav-btn" data-section="rutinas" onclick="switchSection('rutinas')">💪</button>
       <button class="nav-btn" data-section="nutricion" onclick="switchSection('nutricion')">🍎</button>
       <button class="nav-btn" data-section="tracking" onclick="switchSection('tracking')">📈</button>
@@ -546,12 +496,53 @@
               <div class="stat-box"><div class="stat-value" id="statMetasDia">0/3</div><div class="stat-label">Metas</div></div>
             </div>
           </div>
-
           <div class="card">
             <h3 style="margin: 0 0 10px; font-size: 0.95rem; font-weight: 700;">Motivación del Día 🦈</h3>
             <div style="background: rgba(211, 47, 47, 0.1); padding: 10px; border-radius: 8px; border-left: 4px solid var(--primary); font-style: italic; font-size: 0.85rem; line-height: 1.5;">
               "<span id="quoteOfDay">No es sobre ser mejor que otros, es sobre ser mejor que quién eras ayer</span>"
             </div>
+          </div>
+        </div>
+
+        <!-- PERFIL -->
+        <div id="perfil" class="section">
+          <div class="card">
+            <div class="card-title"><span>👤 Mi Perfil</span></div>
+            <div class="grid-2col">
+              <div class="form-group">
+                <label>Peso (kg)</label>
+                <input type="number" id="userWeight" placeholder="70" step="0.5" />
+              </div>
+              <div class="form-group">
+                <label>Altura (cm)</label>
+                <input type="number" id="userHeight" placeholder="180" />
+              </div>
+            </div>
+            <div class="grid-2col">
+              <div class="form-group">
+                <label>Edad (años)</label>
+                <input type="number" id="userAge" placeholder="25" />
+              </div>
+              <div class="form-group">
+                <label>Objetivo Principal</label>
+                <select id="userObjective">
+                  <option value="">-- Selecciona --</option>
+                  <option value="fuerza">🏋️ Fuerza Pura</option>
+                  <option value="musculo">💪 Ganar Masa</option>
+                  <option value="peso">⚡ Perder Peso</option>
+                  <option value="cardio">❤️ Cardio</option>
+                  <option value="resistencia">🏃 Resistencia</option>
+                  <option value="hibrido">🔄 Híbrido</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block mt-12" onclick="saveUserProfile()">💾 Guardar Perfil</button>
+          </div>
+
+          <div class="card" id="recommendationsCard" style="display: none;">
+            <div class="card-title"><span>🤖 Ejercicios Recomendados</span></div>
+            <button class="btn btn-primary btn-block mb-12" onclick="generateExerciseRecommendations()">Generar Recomendaciones</button>
+            <div id="recommendationsDisplay"></div>
           </div>
         </div>
 
@@ -576,7 +567,6 @@
             </div>
             <div id="rutinasDisplay" style="display: none;"></div>
           </div>
-
           <div class="card" id="exercisesCard" style="display: none;">
             <div class="card-title"><span>🏋️ Ejercicios</span></div>
             <div id="exercisesList"></div>
@@ -585,19 +575,46 @@
 
         <!-- NUTRICION -->
         <div id="nutricion" class="section">
+          <!-- BUSCAR ALIMENTOS -->
           <div class="card">
-            <div class="card-title"><span>🍎 Nutrición</span></div>
+            <div class="card-title"><span>🍎 Buscar Alimentos</span></div>
             <div class="form-group">
-              <label>Busca alimentos</label>
+              <label>Busca alimentos de la BD</label>
               <input type="text" id="foodSearch" placeholder="Pollo, palta, arroz..." onkeyup="searchFood()" />
               <div id="foodResults" style="margin-top: 8px;"></div>
             </div>
             <div id="foodListUI" style="display: none; margin-top: 10px; padding: 10px; background: #fafafa; border-radius: 8px;">
-              <h4 style="margin-bottom: 8px; font-size: 0.85rem;">Alimentos:</h4>
+              <h4 style="margin-bottom: 8px; font-size: 0.85rem;">Alimentos seleccionados:</h4>
               <div id="selectedFoods" style="max-height: 180px; overflow-y: auto;"></div>
               <button class="btn btn-primary btn-block mt-12" onclick="generateMenusAI()" id="generateMenusBtn">🤖 Generar Menús</button>
             </div>
             <div id="menusAIDisplay" style="display: none; margin-top: 12px;"></div>
+          </div>
+
+          <!-- AGREGAR ALIMENTO MANUAL -->
+          <div class="card">
+            <div class="card-title"><span>➕ Agregar Alimento Manual</span></div>
+            <div class="form-group">
+              <label>Nombre del alimento</label>
+              <input type="text" id="customFoodName" placeholder="Ej: Pollo a la parrilla" />
+            </div>
+            <div class="form-group">
+              <label>Cantidad (gramos)</label>
+              <input type="number" id="customFoodGrams" placeholder="150" step="10" />
+            </div>
+            <button class="btn btn-primary btn-block" onclick="calculateCustomFoodMacros()" id="calculateMacrosBtn">🧮 Calcular Macros</button>
+            <div id="customFoodResult" style="display: none; margin-top: 10px;"></div>
+          </div>
+
+          <!-- ANALIZAR TICKET -->
+          <div class="card">
+            <div class="card-title"><span>📸 Analizar Ticket de Supermercado</span></div>
+            <div class="form-group">
+              <label>Sube foto de ticket/recibo</label>
+              <input type="file" id="receiptPhoto" accept="image/*" capture="environment" />
+            </div>
+            <button class="btn btn-primary btn-block" onclick="analyzeReceipt()" id="analyzeReceiptBtn">📷 Analizar Foto</button>
+            <div id="receiptResult" style="display: none; margin-top: 10px;"></div>
           </div>
         </div>
 
@@ -605,7 +622,6 @@
         <div id="tracking" class="section">
           <div class="card">
             <div class="card-title"><span>📈 Tracking Diario</span></div>
-
             <div class="form-group">
               <label>Agua (litros)</label>
               <div style="display: flex; gap: 6px;">
@@ -614,7 +630,6 @@
               </div>
               <p style="color: var(--text-secondary); margin-top: 6px; font-size: 0.8rem;">Total: <strong id="waterTotal" style="color: var(--primary);">0 L</strong></p>
             </div>
-
             <div class="form-group">
               <label>Sueño (horas)</label>
               <div style="display: flex; gap: 6px;">
@@ -623,7 +638,6 @@
               </div>
               <p style="color: var(--text-secondary); margin-top: 6px; font-size: 0.8rem;">Total: <strong id="sleepTotal" style="color: var(--primary);">0 h</strong></p>
             </div>
-
             <div class="form-group">
               <label>Pasos</label>
               <div style="display: flex; gap: 6px;">
@@ -657,6 +671,12 @@
 
     const appState = {
       user: null,
+      profile: {
+        weight: null,
+        height: null,
+        age: null,
+        objective: null
+      },
       selectedFoods: [],
       points: 0,
       level: 1,
@@ -667,9 +687,8 @@
       lastSync: null
     };
 
-    // BASE DE DATOS EXTENDIDA (100+ alimentos)
+    // BASE DE DATOS DE ALIMENTOS (100+)
     const foodDatabase = [
-      // PROTEÍNAS
       { name: 'Pollo (pechuga)', cal: 165, protein: 31, carbs: 0, fats: 3.6, aliases: ['pollo pechuga', 'pechuga pollo', 'pollo'] },
       { name: 'Pavo (pechuga)', cal: 135, protein: 29, carbs: 0, fats: 1.3, aliases: ['pavo pechuga', 'pavo'] },
       { name: 'Carne de res', cal: 250, protein: 26, carbs: 0, fats: 15, aliases: ['res', 'carne', 'carne roja', 'vacuno'] },
@@ -679,128 +698,86 @@
       { name: 'Sardinas', cal: 206, protein: 25, carbs: 0, fats: 11, aliases: ['sardina', 'sardinas'] },
       { name: 'Huevo', cal: 155, protein: 13, carbs: 1.1, fats: 11, aliases: ['huevos', 'clara huevo', 'huevo entero'] },
       { name: 'Claras de huevo', cal: 52, protein: 11, carbs: 0.7, fats: 0.2, aliases: ['clara', 'claras'] },
-      { name: 'Pechuga de pollo (magra)', cal: 140, protein: 29, carbs: 0, fats: 2, aliases: [] },
       { name: 'Costilla de res', cal: 280, protein: 24, carbs: 0, fats: 21, aliases: ['costilla'] },
       { name: 'Bacalao', cal: 82, protein: 17.7, carbs: 0, fats: 0.7, aliases: ['bacalao'] },
       { name: 'Camarones', cal: 99, protein: 24, carbs: 0, fats: 0.3, aliases: ['camarón', 'camaron'] },
-      { name: 'Pechuga de pavo', cal: 135, protein: 29, carbs: 0, fats: 1.3, aliases: ['pavo'] },
-      { name: 'Lomo de cerdo', cal: 242, protein: 27, carbs: 0, fats: 14, aliases: ['lomo'] },
-
-      // LÁCTEOS
       { name: 'Yogurt griego', cal: 69, protein: 10, carbs: 3.6, fats: 0.4, aliases: ['yogurt', 'yogur'] },
       { name: 'Queso blanco', cal: 110, protein: 14, carbs: 3, fats: 5, aliases: ['queso fresco', 'quesillo'] },
-      { name: 'Queso cheddar', cal: 402, protein: 25, carbs: 3, fats: 33, aliases: ['cheddar'] },
       { name: 'Leche descremada', cal: 35, protein: 3.4, carbs: 5, fats: 0.1, aliases: ['leche', 'leche desnatada'] },
-      { name: 'Requesón', cal: 98, protein: 11, carbs: 4, fats: 5, aliases: ['ricotta', 'requeson'] },
-      { name: 'Leche entera', cal: 61, protein: 3.2, carbs: 4.8, fats: 3.3, aliases: [] },
-
-      // CARBOHIDRATOS
       { name: 'Arroz blanco', cal: 130, protein: 2.7, carbs: 28, fats: 0.3, aliases: ['arroz', 'arroz blanco'] },
       { name: 'Arroz integral', cal: 111, protein: 2.6, carbs: 23, fats: 0.9, aliases: ['arroz integral'] },
       { name: 'Batata', cal: 86, protein: 1.6, carbs: 20, fats: 0.1, aliases: ['camote', 'batata dulce', 'sweet potato'] },
       { name: 'Papa (cocida)', cal: 77, protein: 1.7, carbs: 17, fats: 0.1, aliases: ['papa', 'patata', 'papa cocida'] },
-      { name: 'Papa dulce', cal: 86, protein: 1.6, carbs: 20, fats: 0.1, aliases: ['camote dulce'] },
       { name: 'Pan integral', cal: 81, protein: 4, carbs: 14, fats: 1, aliases: ['pan', 'pan negro'] },
       { name: 'Avena', cal: 389, protein: 17, carbs: 66, fats: 6.9, aliases: ['avena cocida', 'oatmeal'] },
       { name: 'Quinua cocida', cal: 120, protein: 4.4, carbs: 21, fats: 1.9, aliases: ['quinua', 'quinoa'] },
       { name: 'Pasta blanca', cal: 131, protein: 5, carbs: 25, fats: 1.1, aliases: ['pasta', 'pasta cocida'] },
-      { name: 'Pasta integral', cal: 124, protein: 5.3, carbs: 23, fats: 1.3, aliases: ['pasta integral'] },
       { name: 'Lentejas cocidas', cal: 116, protein: 9, carbs: 20, fats: 0.4, aliases: ['lenteja', 'lentejas'] },
       { name: 'Garbanzos cocidos', cal: 134, protein: 8.9, carbs: 22, fats: 2.1, aliases: ['garbanzo', 'garbanzos'] },
       { name: 'Frijoles negros', cal: 132, protein: 8.9, carbs: 24, fats: 0.5, aliases: ['frijol', 'frijoles', 'porotos'] },
       { name: 'Plátano', cal: 89, protein: 1.1, carbs: 23, fats: 0.3, aliases: ['platano', 'banana', 'banano'] },
       { name: 'Manzana', cal: 52, protein: 0.3, carbs: 14, fats: 0.2, aliases: ['manzana roja', 'manzana verde'] },
       { name: 'Naranja', cal: 47, protein: 0.9, carbs: 12, fats: 0.1, aliases: ['naranja'] },
-      { name: 'Pan blanco', cal: 265, protein: 9, carbs: 49, fats: 3, aliases: [] },
-
-      // GRASAS SALUDABLES
       { name: 'Aguacate', cal: 160, protein: 2, carbs: 9, fats: 15, aliases: ['palta', 'avocado', 'aguacate'] },
       { name: 'Palta', cal: 160, protein: 2, carbs: 9, fats: 15, aliases: ['aguacate'] },
-      { name: 'Aceite de oliva', cal: 884, protein: 0, carbs: 0, fats: 100, aliases: ['oliva', 'aceite'] },
-      { name: 'Maní', cal: 567, protein: 26, carbs: 16, fats: 49, aliases: ['cacahuete', 'mani'] },
       { name: 'Almendras', cal: 579, protein: 21, carbs: 22, fats: 50, aliases: ['almendra'] },
       { name: 'Nueces', cal: 654, protein: 15, carbs: 14, fats: 65, aliases: ['nuez'] },
-      { name: 'Semillas de chía', cal: 486, protein: 17, carbs: 42, fats: 31, aliases: ['chia'] },
-      { name: 'Semillas de linaza', cal: 534, protein: 18, carbs: 29, fats: 42, aliases: ['linaza'] },
-      { name: 'Mantequilla de maní', cal: 588, protein: 25, carbs: 20, fats: 50, aliases: ['peanut butter'] },
-
-      // VERDURAS
+      { name: 'Maní', cal: 567, protein: 26, carbs: 16, fats: 49, aliases: ['cacahuete', 'mani'] },
       { name: 'Brócoli', cal: 34, protein: 2.8, carbs: 7, fats: 0.4, aliases: ['brocoli', 'brócoli'] },
       { name: 'Espinaca', cal: 23, protein: 2.9, carbs: 3.6, fats: 0.4, aliases: ['espinaca'] },
       { name: 'Lechuga', cal: 15, protein: 1.2, carbs: 2.9, fats: 0.2, aliases: ['lechuga'] },
       { name: 'Tomate', cal: 18, protein: 0.9, carbs: 3.9, fats: 0.2, aliases: ['tomate'] },
-      { name: 'Pepino', cal: 16, protein: 0.7, carbs: 3.6, fats: 0.1, aliases: ['pepino'] },
       { name: 'Zanahoria', cal: 41, protein: 0.9, carbs: 10, fats: 0.2, aliases: ['zanahoria'] },
-      { name: 'Cebolla', cal: 40, protein: 1.1, carbs: 9, fats: 0.1, aliases: ['cebolla'] },
-      { name: 'Ajo', cal: 149, protein: 6.4, carbs: 33, fats: 0.5, aliases: ['ajo'] },
       { name: 'Pimiento rojo', cal: 31, protein: 1, carbs: 6, fats: 0.3, aliases: ['pimentón'] },
-      { name: 'Coliflor', cal: 25, protein: 1.9, carbs: 5, fats: 0.1, aliases: ['coliflor'] },
-      { name: 'Calabaza', cal: 26, protein: 1, carbs: 6.5, fats: 0.1, aliases: ['calabaza'] },
-      { name: 'Zucchini', cal: 21, protein: 1.5, carbs: 3.5, fats: 0.4, aliases: ['zucchini', 'zuchinni'] },
-      { name: 'Berenjena', cal: 25, protein: 0.98, carbs: 6, fats: 0.2, aliases: ['berenjena'] },
-      { name: 'Acelga', cal: 19, protein: 1.8, carbs: 3.7, fats: 0.2, aliases: ['acelga'] },
-
-      // FRUTAS
       { name: 'Fresa', cal: 32, protein: 0.8, carbs: 7.7, fats: 0.3, aliases: ['frutilla', 'strawberry', 'fresas'] },
       { name: 'Blueberry', cal: 57, protein: 0.7, carbs: 14, fats: 0.3, aliases: ['arandano', 'arándano'] },
-      { name: 'Sandía', cal: 30, protein: 0.6, carbs: 7.6, fats: 0.2, aliases: ['sandia'] },
-      { name: 'Melón', cal: 34, protein: 0.8, carbs: 8, fats: 0.2, aliases: ['melon'] },
-      { name: 'Piña', cal: 50, protein: 0.5, carbs: 13, fats: 0.1, aliases: ['pina', 'piña'] },
-      { name: 'Uva', cal: 67, protein: 0.7, carbs: 17, fats: 0.2, aliases: ['uva'] },
-      { name: 'Durazno', cal: 39, protein: 0.9, carbs: 10, fats: 0.3, aliases: ['durazno'] },
-
-      // BEBIDAS Y EXTRAS
       { name: 'Café (sin azúcar)', cal: 2, protein: 0.3, carbs: 0, fats: 0, aliases: ['cafe'] },
       { name: 'Té verde', cal: 2, protein: 0, carbs: 0, fats: 0, aliases: ['te verde', 'té'] },
-      { name: 'Agua', cal: 0, protein: 0, carbs: 0, fats: 0, aliases: [] },
       { name: 'Batido de proteína', cal: 130, protein: 25, carbs: 2, fats: 2, aliases: ['protein shake', 'batido'] },
     ];
 
-    // EJERCICIOS CON IMÁGENES
+    // EJERCICIOS CON IMÁGENES 3D REALES
     const exercisesDatabase = {
       musculo: [
-        {name:'Press de Banca',series:4,reps:8,emoji:'🏋️',muscle:'Pecho|Tríceps|Deltoides anterior',img:'🏋️',desc:'Acuéstate en banco plano. Baja barra al pecho. Sube explosivamente.'},
-        {name:'Press Francés',series:3,reps:10,emoji:'💪',muscle:'Tríceps',img:'💪',desc:'De pie, sostén mancuerna con ambas manos arriba. Flexiona codos detrás.'},
-        {name:'Sentadilla Profunda',series:4,reps:8,emoji:'🦵',muscle:'Cuádriceps|Glúteos|Isquios',img:'🦵',desc:'Pies al ancho de hombros. Desciende hasta que muslos estén paralelos.'},
-        {name:'Levantamiento Kettlebell',series:3,reps:12,emoji:'🏋️',muscle:'Glúteos|Espalda baja|Full Body',img:'🏋️',desc:'De pie. Levanta kettlebell con movimiento explosivo de cadera.'},
-        {name:'Dominadas',series:3,reps:8,emoji:'💪',muscle:'Dorsales|Bíceps|Espalda',img:'💪',desc:'Agarre amplio. Tira tu cuerpo hacia la barra. Control total.'},
-        {name:'Remo con Barra',series:4,reps:8,emoji:'💪',muscle:'Dorsal|Espalda media|Bíceps',img:'💪',desc:'Inclínate 45°. Tira barra al pecho. Controlado.'},
+        {name:'Press de Banca',series:4,reps:8,emoji:'🏋️',muscle:'Pecho|Tríceps|Deltoides',desc:'Acuéstate en banco. Baja barra al pecho. Sube explosivamente.',img:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop'},
+        {name:'Press Francés',series:3,reps:10,emoji:'💪',muscle:'Tríceps',desc:'De pie. Sostén mancuerna con ambas manos. Flexiona codos.',img:'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=400&h=300&fit=crop'},
+        {name:'Sentadilla Profunda',series:4,reps:8,emoji:'🦵',muscle:'Cuádriceps|Glúteos|Isquios',desc:'Pies al ancho. Desciende hasta paralelo. Sube con fuerza.',img:'https://images.unsplash.com/photo-1521575107034-e3fb11b318ba?w=400&h=300&fit=crop'},
+        {name:'Dominadas',series:3,reps:8,emoji:'💪',muscle:'Dorsales|Bíceps|Espalda',desc:'Agarre amplio. Tira cuerpo a barra. Control total.',img:'https://images.unsplash.com/photo-1587457965563-4db06b1c0e8e?w=400&h=300&fit=crop'},
+        {name:'Remo con Barra',series:4,reps:8,emoji:'💪',muscle:'Dorsal|Espalda media|Bíceps',desc:'Inclínate 45°. Tira barra al pecho. Controlado.',img:'https://images.unsplash.com/photo-1605296240550-a10656ba8e31?w=400&h=300&fit=crop'},
       ],
       peso: [
-        {name:'Burpees',series:3,reps:15,emoji:'⚡',muscle:'Full Body',img:'⚡',desc:'Agáchate, pecho al suelo, salta hacia arriba. Cardio intenso.'},
-        {name:'Mountain Climbers',series:3,reps:20,emoji:'⚡',muscle:'Core|Cardio',img:'⚡',desc:'En plancha. Alterna rodillas al pecho rápidamente.'},
-        {name:'Saltos al Cajón',series:3,reps:12,emoji:'🏃',muscle:'Piernas|Glúteos',img:'🏃',desc:'Salta explosivamente sobre caja o escalón.'},
-        {name:'Cuerda de Saltar',series:3,reps:100,emoji:'🏃',muscle:'Cardio|Pantorrillas',img:'🏃',desc:'Salta continuamente por 1-2 minutos.'},
+        {name:'Burpees',series:3,reps:15,emoji:'⚡',muscle:'Full Body',desc:'Agáchate, pecho al suelo, salta. Cardio intenso.',img:'https://images.unsplash.com/photo-1540497905646-ab4e1ee2ecb5?w=400&h=300&fit=crop'},
+        {name:'Mountain Climbers',series:3,reps:20,emoji:'⚡',muscle:'Core|Cardio',desc:'En plancha. Alterna rodillas rápidamente.',img:'https://images.unsplash.com/photo-1516074519635-99c23d764e2a?w=400&h=300&fit=crop'},
+        {name:'Saltos al Cajón',series:3,reps:12,emoji:'🏃',muscle:'Piernas|Glúteos',desc:'Salta explosivamente sobre caja.',img:'https://images.unsplash.com/photo-1599747913492-e67055edf185?w=400&h=300&fit=crop'},
       ],
       fuerza: [
-        {name:'Deadlift',series:4,reps:6,emoji:'🏋️',muscle:'Full Body|Espalda baja|Piernas',img:'🏋️',desc:'Levanta barra desde suelo. Máxima fuerza. Técnica perfecta.'},
-        {name:'Sentadilla Trasera (Back Squat)',series:4,reps:6,emoji:'🦵',muscle:'Piernas|Core|Espalda',img:'🦵',desc:'Barra sobre hombros. Desciende con control. Máximo peso.'},
-        {name:'Bench Press Pesado',series:5,reps:5,emoji:'🏋️',muscle:'Pecho|Tríceps|Deltoides',img:'🏋️',desc:'Máximo peso. Enfoque en técnica. Baja controlado.'},
+        {name:'Deadlift',series:4,reps:6,emoji:'🏋️',muscle:'Full Body|Espalda baja|Piernas',desc:'Levanta barra desde suelo. Técnica perfecta.',img:'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop'},
+        {name:'Sentadilla Trasera',series:4,reps:6,emoji:'🦵',muscle:'Piernas|Core|Espalda',desc:'Barra en hombros. Máximo peso. Control.',img:'https://images.unsplash.com/photo-1567895669898-f4c170a4d8a0?w=400&h=300&fit=crop'},
+        {name:'Bench Press Pesado',series:5,reps:5,emoji:'🏋️',muscle:'Pecho|Tríceps|Deltoides',desc:'Máximo peso. Técnica. Baja controlado.',img:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop'},
       ],
       cardio: [
-        {name:'Running',series:1,reps:30,emoji:'🏃',muscle:'Cardio|Full Body',img:'🏃',desc:'30 min a ritmo moderado. 2-3 veces/semana.'},
-        {name:'Ciclismo',series:1,reps:45,emoji:'🚴',muscle:'Piernas|Cardio',img:'🚴',desc:'45 min en bicicleta a ritmo constante.'},
-        {name:'HIIT',series:8,reps:30,emoji:'⚡',muscle:'Cardio|Full Body',img:'⚡',desc:'30s intenso, 30s descanso. x8 rondas.'},
+        {name:'Running',series:1,reps:30,emoji:'🏃',muscle:'Cardio|Full Body',desc:'30 min ritmo moderado. 2-3 veces/semana.',img:'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop'},
+        {name:'Ciclismo',series:1,reps:45,emoji:'🚴',muscle:'Piernas|Cardio',desc:'45 min bicicleta ritmo constante.',img:'https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=400&h=300&fit=crop'},
+        {name:'HIIT',series:8,reps:30,emoji:'⚡',muscle:'Cardio|Full Body',desc:'30s intenso, 30s descanso. x8 rondas.',img:'https://images.unsplash.com/photo-1520383677364-86ebc0ceb8a6?w=400&h=300&fit=crop'},
       ],
       abdomen: [
-        {name:'Abdominales',series:3,reps:20,emoji:'🎯',muscle:'Recto abdominal',img:'🎯',desc:'Acostado. Levanta torso hacia rodillas.'},
-        {name:'Plancia (Plank)',series:3,reps:60,emoji:'🎯',muscle:'Core|Abdomen',img:'🎯',desc:'Mantén posición recta 60 segundos.'},
-        {name:'Crunches de Bicicleta',series:3,reps:20,emoji:'🎯',muscle:'Abdomen|Oblicuos',img:'🎯',desc:'Alternando codos a rodillas opuestas.'},
+        {name:'Abdominales',series:3,reps:20,emoji:'🎯',muscle:'Recto abdominal',desc:'Acostado. Levanta torso a rodillas.',img:'https://images.unsplash.com/photo-1515962505071-9a3a9e466f87?w=400&h=300&fit=crop'},
+        {name:'Plancia (Plank)',series:3,reps:60,emoji:'🎯',muscle:'Core|Abdomen',desc:'Posición recta 60 segundos.',img:'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=400&h=300&fit=crop'},
+        {name:'Crunches de Bicicleta',series:3,reps:20,emoji:'🎯',muscle:'Abdomen|Oblicuos',desc:'Alternando codos a rodillas.',img:'https://images.unsplash.com/photo-1516074519635-99c23d764e2a?w=400&h=300&fit=crop'},
       ],
       piernas: [
-        {name:'Estocadas',series:3,reps:12,emoji:'🦵',muscle:'Cuádriceps|Glúteos|Isquios',img:'🦵',desc:'Avanza con una pierna. Dobla ambas rodillas.'},
-        {name:'Extensión de Piernas',series:3,reps:15,emoji:'🦵',muscle:'Cuádriceps',img:'🦵',desc:'En máquina. Extiende piernas completamente.'},
-        {name:'Curl de Isquios',series:3,reps:12,emoji:'🦵',muscle:'Isquios',img:'🦵',desc:'En máquina. Dobla rodillas hacia atrás.'},
+        {name:'Estocadas',series:3,reps:12,emoji:'🦵',muscle:'Cuádriceps|Glúteos|Isquios',desc:'Avanza con una pierna. Dobla ambas.',img:'https://images.unsplash.com/photo-1567895669898-f4c170a4d8a0?w=400&h=300&fit=crop'},
+        {name:'Extensión de Piernas',series:3,reps:15,emoji:'🦵',muscle:'Cuádriceps',desc:'En máquina. Extiende completamente.',img:'https://images.unsplash.com/photo-1515962505071-9a3a9e466f87?w=400&h=300&fit=crop'},
+        {name:'Curl de Isquios',series:3,reps:12,emoji:'🦵',muscle:'Isquios',desc:'En máquina. Dobla rodillas hacia atrás.',img:'https://images.unsplash.com/photo-1521575107034-e3fb11b318ba?w=400&h=300&fit=crop'},
       ],
       pecho: [
-        {name:'Press de Mancuernas',series:4,reps:10,emoji:'🏋️',muscle:'Pecho|Tríceps|Deltoides',img:'🏋️',desc:'Acostado. Levanta mancuernas hacia arriba.'},
-        {name:'Aperturas de Pecho',series:3,reps:12,emoji:'🏋️',muscle:'Pecho',img:'🏋️',desc:'Abre brazos en movimiento arqueado.'},
-        {name:'Flexiones',series:3,reps:15,emoji:'💪',muscle:'Pecho|Tríceps|Deltoides',img:'💪',desc:'Clásico. Cuerpo recto. Amplitud completa.'},
+        {name:'Press de Mancuernas',series:4,reps:10,emoji:'🏋️',muscle:'Pecho|Tríceps|Deltoides',desc:'Acostado. Levanta mancuernas arriba.',img:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop'},
+        {name:'Aperturas de Pecho',series:3,reps:12,emoji:'🏋️',muscle:'Pecho',desc:'Abre brazos en movimiento arqueado.',img:'https://images.unsplash.com/photo-1587457965563-4db06b1c0e8e?w=400&h=300&fit=crop'},
+        {name:'Flexiones',series:3,reps:15,emoji:'💪',muscle:'Pecho|Tríceps|Deltoides',desc:'Clásico. Cuerpo recto. Amplitud completa.',img:'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=400&h=300&fit=crop'},
       ],
       espalda: [
-        {name:'Remo en Máquina',series:3,reps:12,emoji:'💪',muscle:'Dorsal|Espalda media',img:'💪',desc:'Jala el mango hacia tu cuerpo.'},
-        {name:'Lat Pulldown',series:3,reps:12,emoji:'💪',muscle:'Dorsales|Bíceps',img:'💪',desc:'Jala barra hacia pecho sentado.'},
-        {name:'Face Pulls',series:3,reps:15,emoji:'💪',muscle:'Espalda posterior|Deltoides',img:'💪',desc:'Jala cuerda hacia cara. Enfoque en contracción.'},
+        {name:'Remo en Máquina',series:3,reps:12,emoji:'💪',muscle:'Dorsal|Espalda media',desc:'Jala mango hacia tu cuerpo.',img:'https://images.unsplash.com/photo-1605296240550-a10656ba8e31?w=400&h=300&fit=crop'},
+        {name:'Lat Pulldown',series:3,reps:12,emoji:'💪',muscle:'Dorsales|Bíceps',desc:'Jala barra a pecho sentado.',img:'https://images.unsplash.com/photo-1587457965563-4db06b1c0e8e?w=400&h=300&fit=crop'},
       ]
     };
 
@@ -840,21 +817,10 @@
         const result = await response.json();
         if (result.success) {
           appState.lastSync = result.lastSync;
-          showSyncStatus('✅ Sincronizado');
         }
       } catch (error) {
         console.log('Sync error:', error);
       }
-    }
-
-    function showSyncStatus(msg) {
-      const existing = document.querySelector('.sync-status');
-      if (existing) existing.remove();
-      const status = document.createElement('div');
-      status.className = 'sync-status';
-      status.textContent = msg;
-      document.body.appendChild(status);
-      setTimeout(() => status.remove(), 2000);
     }
 
     function loginWithEmail() {
@@ -863,20 +829,19 @@
         alert('Email válido requerido');
         return;
       }
-
       appState.user = {
         name: email.split('@')[0],
         email: email,
         avatar: email.charAt(0).toUpperCase()
       };
       saveState();
-
       document.getElementById('authScreen').classList.add('hidden');
       document.getElementById('appScreen').classList.remove('hidden');
       document.getElementById('userAvatarHeader').textContent = appState.user.avatar;
       document.getElementById('userGreeting').textContent = appState.user.email + ' • Mentalidad de Tiburón 🦈';
       loadQuote();
       updateDashboard();
+      loadUserProfile();
     }
 
     function logout() {
@@ -909,21 +874,81 @@
       }
     }
 
+    // FUNCIONES DE PERFIL
+    function loadUserProfile() {
+      const weight = appState.profile.weight;
+      const height = appState.profile.height;
+      const age = appState.profile.age;
+      const objective = appState.profile.objective;
+
+      if (weight) document.getElementById('userWeight').value = weight;
+      if (height) document.getElementById('userHeight').value = height;
+      if (age) document.getElementById('userAge').value = age;
+      if (objective) document.getElementById('userObjective').value = objective;
+
+      if (weight && height && age && objective) {
+        document.getElementById('recommendationsCard').style.display = 'block';
+      }
+    }
+
+    function saveUserProfile() {
+      const weight = parseFloat(document.getElementById('userWeight').value);
+      const height = parseInt(document.getElementById('userHeight').value);
+      const age = parseInt(document.getElementById('userAge').value);
+      const objective = document.getElementById('userObjective').value;
+
+      if (!weight || !height || !age || !objective) {
+        alert('Completa todos los campos');
+        return;
+      }
+
+      appState.profile = { weight, height, age, objective };
+      saveState();
+      document.getElementById('recommendationsCard').style.display = 'block';
+      alert('✅ Perfil guardado');
+      addPoints(25);
+    }
+
+    async function generateExerciseRecommendations() {
+      const { weight, height, age, objective } = appState.profile;
+      if (!weight || !height || !age || !objective) {
+        alert('Completa tu perfil primero');
+        return;
+      }
+
+      const btn = document.querySelector('[onclick="generateExerciseRecommendations()"]');
+      btn.innerHTML = '<span class="loading"></span> Generando...';
+      btn.disabled = true;
+
+      const result = await callAPI('/api/exercise-recommendations', {
+        weight, height, age, objective
+      });
+
+      btn.innerHTML = 'Generar Recomendaciones';
+      btn.disabled = false;
+
+      if (result && result.success) {
+        const display = document.getElementById('recommendationsDisplay');
+        display.innerHTML = `<div style="background: white; border: 1px solid var(--border-gray); border-radius: 8px; padding: 10px; white-space: pre-wrap; font-size: 0.8rem; line-height: 1.5; max-height: 400px; overflow-y: auto;">${result.recommendations}</div>`;
+        addPoints(50);
+      } else {
+        alert('Error generando recomendaciones');
+      }
+    }
+
+    // FUNCIONES DE ALIMENTOS
     function searchFood() {
       const query = document.getElementById('foodSearch').value.toLowerCase();
       const results = document.getElementById('foodResults');
-
       if (!query) {
         results.innerHTML = '';
         return;
       }
-
       const filtered = foodDatabase.filter(f => {
         const match = f.name.toLowerCase().includes(query);
         const aliasMatch = f.aliases.some(a => a.includes(query));
         return match || aliasMatch;
       });
-
       results.innerHTML = filtered.map(food => `
         <button class="btn btn-secondary btn-sm" style="width: 100%; justify-content: flex-start; margin-bottom: 5px;" onclick="addFoodToList('${food.name}')">
           ${food.name} (${food.cal}cal | ${food.protein}g P)
@@ -966,39 +991,112 @@
         alert('Selecciona alimentos');
         return;
       }
-
       const btn = document.getElementById('generateMenusBtn');
       btn.innerHTML = '<span class="loading"></span> Generando...';
       btn.disabled = true;
-
       const result = await callAPI('/api/generate-menus', {
-        objective: 'hibrido',
+        objective: appState.profile.objective || 'hibrido',
         foods: appState.selectedFoods,
         calorieTarget: 2300,
         proteinTarget: 160
       });
-
       btn.innerHTML = '🤖 Generar Menús';
       btn.disabled = false;
-
       if (result && result.success) {
-        displayMenus(result);
+        const display = document.getElementById('menusAIDisplay');
+        display.innerHTML = `<h3 style="color: var(--primary); margin-bottom: 8px; font-size: 0.95rem;">✅ Menús por IA</h3><div style="background: white; border: 1px solid var(--border-gray); border-radius: 8px; padding: 10px; white-space: pre-wrap; font-size: 0.8rem; line-height: 1.5; max-height: 350px; overflow-y: auto;">${result.rawResponse}</div>`;
+        display.style.display = 'block';
         addPoints(50);
       } else {
         alert('Error generando menús');
       }
     }
 
-    function displayMenus(result) {
-      const display = document.getElementById('menusAIDisplay');
-      const menusHTML = `
-        <h3 style="color: var(--primary); margin-bottom: 8px; font-size: 0.95rem;">✅ Menús por IA</h3>
-        <div style="background: white; border: 1px solid var(--border-gray); border-radius: 8px; padding: 10px; white-space: pre-wrap; font-size: 0.8rem; line-height: 1.5; max-height: 350px; overflow-y: auto;">${result.rawResponse}</div>
-      `;
-      display.innerHTML = menusHTML;
-      display.style.display = 'block';
+    // CALCULAR MACROS PERSONALIZADOS
+    async function calculateCustomFoodMacros() {
+      const foodName = document.getElementById('customFoodName').value.trim();
+      const grams = parseInt(document.getElementById('customFoodGrams').value);
+
+      if (!foodName || !grams || grams <= 0) {
+        alert('Completa nombre y gramos');
+        return;
+      }
+
+      const btn = document.getElementById('calculateMacrosBtn');
+      btn.innerHTML = '<span class="loading"></span> Calculando...';
+      btn.disabled = true;
+
+      const result = await callAPI('/api/calculate-macros', {
+        foodName: foodName,
+        grams: grams
+      });
+
+      btn.innerHTML = '🧮 Calcular Macros';
+      btn.disabled = false;
+
+      if (result && result.success) {
+        const resultDiv = document.getElementById('customFoodResult');
+        const macros = result.macros;
+        resultDiv.innerHTML = `
+          <div class="macro-display">
+            <strong>${foodName} - ${grams}g</strong><br>
+            Calorías: ${macros.calories}kcal<br>
+            Proteína: ${macros.protein}g<br>
+            Carbos: ${macros.carbs}g<br>
+            Grasas: ${macros.fats}g
+          </div>
+        `;
+        resultDiv.style.display = 'block';
+        addPoints(20);
+      } else {
+        alert('Error calculando macros');
+      }
     }
 
+    // ANALIZAR TICKET DE SUPERMERCADO
+    async function analyzeReceipt() {
+      const fileInput = document.getElementById('receiptPhoto');
+      if (!fileInput.files || fileInput.files.length === 0) {
+        alert('Selecciona una foto');
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = async (e) => {
+        const base64 = e.target.result;
+        const btn = document.getElementById('analyzeReceiptBtn');
+        btn.innerHTML = '<span class="loading"></span> Analizando...';
+        btn.disabled = true;
+
+        const result = await callAPI('/api/analyze-receipt', {
+          imageBase64: base64
+        });
+
+        btn.innerHTML = '📷 Analizar Foto';
+        btn.disabled = false;
+
+        if (result && result.success) {
+          const resultDiv = document.getElementById('receiptResult');
+          resultDiv.innerHTML = `
+            <h4 style="margin-bottom: 8px; color: var(--primary);">Productos encontrados:</h4>
+            <div style="background: white; border: 1px solid var(--border-gray); border-radius: 8px; padding: 10px; font-size: 0.85rem; line-height: 1.6; max-height: 300px; overflow-y: auto;">
+              ${result.foods.map(f => `<div>• ${f}</div>`).join('')}
+            </div>
+            <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.8rem;">💡 Usa estos alimentos para generar menús personalizados</p>
+          `;
+          resultDiv.style.display = 'block';
+          addPoints(30);
+        } else {
+          alert('Error analizando foto');
+        }
+      };
+
+      reader.readAsDataURL(file);
+    }
+
+    // EJERCICIOS
     function loadRutinas() {
       const obj = document.getElementById('objectiveSelect').value;
       if (!obj) {
@@ -1006,7 +1104,6 @@
         document.getElementById('exercisesCard').style.display = 'none';
         return;
       }
-
       const rutinas = {
         peso: '⚡ Cardio intenso + déficit. 60 min/día, 5-6 días/semana.',
         musculo: '💪 Pesas + hipertrofia. 4-5 días/semana. Máximo volumen.',
@@ -1018,11 +1115,9 @@
         espalda: '💪 Espalda fuerte. Remos, dominadas, pulldowns.',
         hibrido: '🔄 Balanceado. 3 días pesas, 2 cardio, 2 descanso.'
       };
-
       const display = document.getElementById('rutinasDisplay');
       display.innerHTML = `<p style="color: var(--text-secondary); margin-top: 8px; font-size: 0.85rem; line-height: 1.5;">📋 <strong>${rutinas[obj]}</strong></p>`;
       display.style.display = 'block';
-
       if (exercisesDatabase[obj]) {
         document.getElementById('exercisesCard').style.display = 'block';
         const exercisesList = document.getElementById('exercisesList');
@@ -1033,7 +1128,7 @@
               <span style="font-size: 0.8rem; color: var(--text-secondary);">${ex.series}x${ex.reps}</span>
             </div>
             <div class="exercise-details" id="exercise-${obj}-${i}">
-              <div class="exercise-image">${ex.img}</div>
+              <div class="exercise-image" style="background-image: url('${ex.img}');"></div>
               <p style="margin-bottom: 6px;"><strong>Músculos:</strong> ${ex.muscle}</p>
               <p style="margin-bottom: 6px;"><strong>Técnica:</strong> ${ex.desc}</p>
               <p><strong>Recomendación:</strong> ${ex.series} series de ${ex.reps} reps. Descanso 60-90s.</p>
@@ -1049,6 +1144,7 @@
       el.parentElement.classList.toggle('expanded');
     }
 
+    // TRACKING
     function addWater() {
       const amount = parseFloat(document.getElementById('waterInput').value);
       if (isNaN(amount) || amount <= 0) {
@@ -1122,6 +1218,7 @@
         document.getElementById('userGreeting').textContent = appState.user.email + ' • Mentalidad de Tiburón 🦈';
         updateDashboard();
         loadQuote();
+        loadUserProfile();
         syncToServer();
       }
     });
